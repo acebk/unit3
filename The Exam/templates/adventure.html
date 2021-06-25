@@ -1,36 +1,13 @@
 
 <html>
 <head>
-    <style>
-        body {
-            background-color: maroon;
-            color: white;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-        }
-
-        h1 {
-            font-size: 48px;
-        }
-
-        p, a {
-            font-size: 24px;
-        }
-
-        a {
-            color: red;
-            font-weight: bold;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 100px auto;
-        }
-    </style>
+  <link rel= "stylesheet" href= "{{url_for('static',filename='styles.css')}}">
 </head>
 
 <body>
     <div class="container">
         <h1>{{ title }}</h1>
+        <img src="{{ image }}">
 
         <p>{{ text }}</p>
 
