@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block container %}
+<h1> {{ title }} </h1>
+<h2> {{ comment }} </h2>
+{% if list %}
+    <ul>
+      {% for x in list %}
+        <li>{{ x }}</li>
+      {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}
