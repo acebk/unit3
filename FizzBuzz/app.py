@@ -6,9 +6,9 @@ app = Flask(__name__)
 def index():
 
     title = "This is my FizzBuzz Site"
-    comment = "To activate FizzBuzz, add '/fizzbuzz/number' to the end of the url"
-
-    return render_template('fizzbuzz.html', title=title, comment=comment)
+    comment = "To activate FizzBuzz, add '/fizzbuzz/number' to the end of the url."
+    comment2 = "To activate anagrams, add 'words/word' to the end of the url."
+    return render_template('fizzbuzz.html', title=title, comment=comment, comment2=comment2)
 
 
 
@@ -29,3 +29,16 @@ def fizzbuzz(num):
             list.append(n)
 
     return render_template('fizzbuzz.html', list=list )
+
+@app.route("/words/<string:word>")
+def words(word):
+
+    words=[]
+    f = open("static/words.txt")
+    dictionary = f.read().splitlines()
+
+    for w in dictionary:
+        if sorted(word.upper()) == sorted(w): 
+            words.append(w)
+
+    return render_template('fizzbuzz.html', words=words, dictionary=dictionary)

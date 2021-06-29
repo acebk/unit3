@@ -3,6 +3,8 @@
 {% block container %}
 <h1> {{ title }} </h1>
 <h2> {{ comment }} </h2>
+<h2> {{ comment2 }} </h2>
+
 {% if list %}
     <ul>
       {% for x in list %}
@@ -11,4 +13,11 @@
     </ul>
 {% endif %}
 
+{% if words %}
+  <ul>
+    {% for w in words %}
+      <li>{{ w }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
 {% endblock %}
