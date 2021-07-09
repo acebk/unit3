@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block container %}
+
+<h1> {{ title }}</h1>
+{% if list %}
+<h2> There are {{ dict_length }} words in the dictionary</h2>
+{% else %}
+<p> There {{ x }} {{ valid }} {{ tense }} that {{ poss }} the prefix {{ word }}</p>
+{% endif %}
+
+{% if not list %}
+<ul>
+  {% for word in dict_list %}
+    <li><a href = "{{url_for('words', word=word)}}">{{ word }}</a></li>
+  {% endfor %}
+</ul>
+
+{% else %}
+<ul>
+  {% for letter in list %}
+    <li><a href = "{{url_for('words', word=letter)}}">{{ letter }}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% endblock %}
